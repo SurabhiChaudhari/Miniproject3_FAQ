@@ -8,8 +8,12 @@
                     <div class="card-body">
                         @if($edit === FALSE)
                             {!! Form::model($answer, ['route' => ['answer.store', $question], 'method' => 'post']) !!}
+
+                            @else()
+                                {!! Form::model($answer, ['route' => ['answer.update', $question, $answer], 'method' => 'patch']) !!}
+
                         @endif
-                        <div class="form-group">
+                            <div class="form-group">
                             {!! Form::label('body', 'Body') !!}
                             {!! Form::text('body', $answer->body, ['class' => 'form-control','required' => 'required']) !!}
                         </div>
